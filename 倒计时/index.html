@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>menu</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link href="https://cdn.bootcss.com/Swiper/4.0.6/css/swiper.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 0;
+            margin: 0
+        }
+
+        .swiper-slide {
+            width: auto !important;
+        }
+
+        .topmenu {
+            height: 35px;
+            background-color: white;
+            border-bottom: 1px solid #CCCCCC;
+            padding: 0 10px;
+            line-height: 35px;
+            font-family: "微软雅黑"
+        }
+    </style>
+</head>
+
+<body id="mall">
+    <div class="endtime">2020-8-8 12:16:21</div>
+    <div class="endtime">2020-9-8 12:16:21</div>
+    <!-- Swiper -->
+    <div class="showtime">
+
+    </div>
+    <div class="showtime">
+
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/Swiper/4.0.6/js/swiper.min.js"></script>
+    <script>
+        function showtime(time) {
+            var nowtime = new Date(), //获取当前时间
+                endtime = new Date(time); //定义结束时间
+            var lefttime = endtime.getTime() - nowtime.getTime(), //距离结束时间的毫秒数
+                leftd = Math.floor(lefttime / (1000 * 60 * 60 * 24)), //计算天数
+                lefth = Math.floor(lefttime / (1000 * 60 * 60) % 24), //计算小时数
+                leftm = Math.floor(lefttime / (1000 * 60) % 60), //计算分钟数
+                lefts = Math.floor(lefttime / 1000 % 60); //计算秒数
+            return leftd + "天" + lefth + ":" + leftm + ":" + lefts; //返回倒计时的字符串
+        }
+        var div = document.getElementsByClassName("showtime");
+        var times = document.getElementsByClassName("endtime");
+        console.log(times);
+        setInterval(function () {
+            for (var i in div) {
+                for(var j in times){
+                    var time = times[i].innerHTML;
+                    console.log(time);
+                    div[i].innerHTML = showtime(time);
+                }
+            }
+        }, 1000); //反复执行函数本身
+    </script>
+</body>
+
+</html>

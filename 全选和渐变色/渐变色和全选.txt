@@ -1,0 +1,25 @@
+    background: -moz-linear-gradient(top, #0C78FF 0%, #6AC1FC 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0C78FF), color-stop(100%, #6AC1FC));
+    background: -webkit-linear-gradient(top, #0C78FF 0%, #6AC1FC 100%);
+    background: -o-linear-gradient(top, #0C78FF 0%, #6AC1FC 100%);
+    background: -ms-linear-gradient(top, #0C78FF 0%, #6AC1FC 100%);
+    background: linear-gradient(to bottom, #0C78FF 0%, #6AC1FC 100%);
+
+    $(function () {
+        $("#selectAll").click(function () {
+            var checkedElt = this.checked
+            var allCheck = $('input:checkbox');
+            if(checkedElt){
+            //全选
+            for(var i=0;i<allCheck.length;i++){
+                //设置复选框的选中状态
+                allCheck[i].checked=true;
+                }
+            }else{
+                //取消全选
+                for(var i=0;i<allCheck.length;i++){
+                allCheck[i].checked=false;
+                }
+            }
+        });
+    })
