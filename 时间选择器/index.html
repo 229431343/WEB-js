@@ -9,12 +9,15 @@
 </head>
 <body>
     <input type="text" name="start_time" id="date1" data-options="{'type':'YYYY-MM-DD hh:mm','beginYear':2010,'endYear':2088}" class="form-control layui-input" value="" placeholder="开始时间"> 
+    <!-- 时间限制 -->
+    <input type="text" name="start_time" id="date2" data-options="{'type':'YYYY-MM-DD hh:mm','beginYear':2010,'endYear':2088,'limitTime':'today'}" class="form-control layui-input" value="" placeholder="开始时间"> 
 </body>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.date.js"></script>
 <script>
     $(function(){
 		$.date('#date1');
+		$.date('#date2');
     });
 </script>
 </html>
